@@ -1,0 +1,298 @@
+<style>
+.product-page { display: flex; flex-direction: column; }
+.main-container { display: flex; width: 100%; padding-left: 54px; flex-direction: column; }
+@media (max-width: 991px) { .main-container { max-width: 100%; padding-left: 20px; } }
+.header-wrapper { display: flex; width: 100%; gap: 20px; flex-wrap: wrap; justify-content: space-between; }
+@media (max-width: 991px) { .header-wrapper { max-width: 100%; } }
+.brand-title { color: #426B1F; letter-spacing: -0.32px; margin: auto 0; font: 700 32px/1 Newsreader, sans-serif; }
+.nav-container { display: flex; gap: 40px 47px; text-align: center; flex-wrap: wrap; font: 16px/1.3 Inter, sans-serif; }
+@media (max-width: 991px) { .nav-container { max-width: 100%; } }
+.events-link { color: #000; font-weight: 400; flex-grow: 1; margin: auto 0; }
+.nav-items { display: flex; gap: 23px; flex-grow: 1; flex-basis: auto; }
+.nav-links { display: flex; padding-bottom: 9px; flex-direction: column; color: #000; font-weight: 500; }
+.nav-list { display: flex; min-height: 48px; align-items: center; gap: 40px 48px; justify-content: start; }
+.nav-item { align-self: stretch; margin: auto 0; }
+.nav-divider { align-self: center; z-index: 10; margin-top: -37px; width: 1px; height: 28px; border: 1px solid #000; }
+.signout-btn { align-self: stretch; border-radius: 8px; background-color: #3B83F0; color: #FFF; font-weight: 600; white-space: nowrap; padding: 14px 23px; }
+@media (max-width: 991px) { .signout-btn { white-space: initial; padding: 0 20px; } }
+.category-wrapper { align-self: end; display: flex; width: 906px; max-width: 100%; gap: 20px; flex-wrap: wrap; justify-content: space-between; margin: 84px 68px 0 0; font: 600 22px Gothic A1, sans-serif; }
+@media (max-width: 991px) { .category-wrapper { margin: 40px 10px 0 0; } }
+.category-title { color: #3F4646; }
+.category-links { display: flex; gap: 21px; white-space: nowrap; }
+@media (max-width: 991px) { .category-links { white-space: initial; } }
+.new-link { color: #8A33FD; }
+.recommended-link { color: #3F4646; flex-basis: auto; }
+.content-wrapper { margin-top: 48px; width: 100%; max-width: 1266px; }
+@media (max-width: 991px) { .content-wrapper { max-width: 100%; margin-top: 40px; } }
+.filter-products { gap: 20px; display: flex; }
+@media (max-width: 991px) { .filter-products { flex-direction: column; align-items: stretch; gap: 0; } }
+.filter-column { display: flex; flex-direction: column; line-height: normal; width: 25%; margin-left: 0; }
+@media (max-width: 991px) { .filter-column { width: 100%; } }
+.filter-container { border-radius: 0 0 2px 2px; border-color: #BEBCBD; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; display: flex; margin-top: 152px; width: 100%; flex-direction: column; align-items: center; color: #807D7E; white-space: nowrap; padding: 23px 0 78px; font: 600 22px Gothic A1, sans-serif; }
+@media (max-width: 991px) { .filter-container { margin-top: 40px; white-space: initial; } }
+.filter-header { display: flex; width: 236px; max-width: 100%; gap: 20px; letter-spacing: 0.44px; justify-content: space-between; }
+@media (max-width: 991px) { .filter-header { white-space: initial; } }
+.filter-icon { aspect-ratio: 0.94; object-fit: contain; object-position: center; width: 17px; border-radius: 2px; align-self: start; }
+.filter-divider { aspect-ratio: 333.33; object-fit: contain; object-position: center; width: 100%; align-self: stretch; margin-top: 29px; }
+.price-filter { display: flex; margin-top: 25px; width: 230px; max-width: 100%; gap: 20px; letter-spacing: 0.44px; justify-content: space-between; }
+@media (max-width: 991px) { .price-filter { white-space: initial; } }
+.price-icon { aspect-ratio: 1.72; object-fit: contain; object-position: center; width: 12px; border-radius: 1px; margin: auto 0; }
+.price-slider { aspect-ratio: 6.76; object-fit: contain; object-position: center; width: 230px; margin-top: 63px; max-width: 100%; }
+@media (max-width: 991px) { .price-slider { margin-top: 40px; } }
+.price-range { display: flex; margin-top: 14px; width: 224px; max-width: 100%; gap: 20px; color: #3C4242; justify-content: space-between; font: 400 16px ABeeZee, sans-serif; }
+@media (max-width: 991px) { .price-range { white-space: initial; } }
+.price-input { border-radius: 8px; padding: 7px 22px; border: 1px solid #BEBCBD; }
+@media (max-width: 991px) { .price-input { white-space: initial; padding: 0 20px; } }
+.products-column { display: flex; flex-direction: column; line-height: normal; width: 75%; margin-left: 20px; }
+@media (max-width: 991px) { .products-column { width: 100%; } }
+.products-container { display: flex; width: 100%; flex-direction: column; }
+@media (max-width: 991px) { .products-container { max-width: 100%; margin-top: 40px; } }
+.products-grid { gap: 20px; display: flex; }
+@media (max-width: 991px) { .products-grid { flex-direction: column; align-items: stretch; gap: 0; } }
+.product-column { display: flex; flex-direction: column; line-height: normal; width: 33%; margin-left: 0; }
+@media (max-width: 991px) { .product-column { width: 100%; } }
+.product-image-wrapper { display: flex; flex-direction: column; border-radius: 12px; position: relative; aspect-ratio: 0.762; flex-grow: 1; align-items: end; padding: 27px 56px 311px; }
+@media (max-width: 991px) { .product-image-wrapper { margin-top: 24px; padding: 0 20px 100px; } }
+.product-image { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; object-position: center; }
+.favorite-icon { aspect-ratio: 1; object-fit: contain; object-position: center; width: 32px; }
+.product-info { display: flex; margin-top: 32px; width: 100%; gap: 40px 68px; color: #3C4242; }
+@media (max-width: 991px) { .product-info { max-width: 100%; } }
+.product-title { flex-grow: 1; margin: auto 0; font: 600 18px Gothic A1, sans-serif; }
+.price-wrapper { display: flex; gap: 26px; }
+.product-price { border-radius: 8px; background-color: #F6F6F6; text-align: center; padding: 10px 12px; font: 400 14px ABeeZee, sans-serif; }
+.footer-wrapper { display: flex; margin-top: 168px; width: 100%; flex-direction: column; padding: 0 54px; }
+@media (max-width: 991px) { .footer-wrapper { max-width: 100%; margin-top: 40px; padding: 0 20px; } }
+.footer-divider { background-color: #DDD; display: flex; height: 1px; }
+@media (max-width: 991px) { .footer-divider { max-width: 100%; } }
+.footer-content { margin-top: 48px; width: 100%; max-width: 1057px; }
+@media (max-width: 991px) { .footer-content { max-width: 100%; margin-top: 40px; } }
+.footer-columns { gap: 20px; display: flex; }
+@media (max-width: 991px) { .footer-columns { flex-direction: column; align-items: stretch; gap: 0; } }
+.footer-logo-column { display: flex; flex-direction: column; line-height: normal; width: 27%; margin-left: 0; }
+@media (max-width: 991px) { .footer-logo-column { width: 100%; } }
+.footer-logo-address { display: flex; flex-grow: 1; flex-direction: column; color: #000; justify-content: start; font: 400 16px/21px Inter, sans-serif; }
+@media (max-width: 991px) { .footer-logo-address { margin-top: 40px; } }
+.footer-logo { display: flex; min-height: 36px; max-width: 100%; width: 232px; }
+.footer-address { margin-top: 32px; }
+.footer-links-column { display: flex; flex-direction: column; line-height: normal; width: 73%; margin-left: 20px; }
+@media (max-width: 991px) { .footer-links-column { width: 100%; } }
+.footer-links-wrapper { gap: 20px; display: flex; }
+@media (max-width: 991px) { .footer-links-wrapper { flex-direction: column; align-items: stretch; gap: 0; } }
+.footer-links-subcolumn { display: flex; flex-direction: column; line-height: normal; width: 33%; margin-left: 0; }
+@media (max-width: 991px) { .footer-links-subcolumn { width: 100%; } }
+.footer-links { display: flex; flex-direction: column; color: #000; justify-content: start; font: 400 16px/1.3 Inter, sans-serif; }
+@media (max-width: 991px) { .footer-links { margin-top: 32px; } }
+.footer-link { margin-top: 16px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+</style>
+
+<section class="product-page">
+  <div class="main-container">
+    <header class="header-wrapper">
+      <h1 class="brand-title">Eco Products</h1>
+      <nav class="nav-container">
+        <a href="#" class="events-link">Upcoming Events</a>
+        <div class="nav-items">
+          <div class="nav-links">
+            <ul class="nav-list">
+              <li class="nav-item"><a href="#">About Us</a></li>
+              <li class="nav-item"><a href="#">My Profile</a></li>
+            </ul>
+            <div class="nav-divider"></div>
+          </div>
+          <button class="signout-btn">Signout</button>
+        </div>
+      </nav>
+    </header>
+    <div class="category-wrapper">
+      <h2 class="category-title">Women's Clothing</h2>
+      <div class="category-links">
+        <a href="#" class="new-link">New</a>
+        <a href="#" class="recommended-link">Recommended</a>
+      </div>
+    </div>
+  </div>
+  <main class="content-wrapper">
+    <div class="filter-products">
+      <aside class="filter-column">
+        <div class="filter-container">
+          <div class="filter-header">
+            <span>Sort</span>
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/3aedca2868575dfa6e9dd04cabb4c4e93e7daa1e18b22946eaeae98cfa0117bf?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Sort icon" class="filter-icon" />
+          </div>
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/42abd467d4160fb159a591ae586bbed4c7c59aa1a74324391d85844f52a6198f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="" class="filter-divider" />
+          <div class="price-filter">
+            <span>Price</span>
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/aa8acba70f5deb370d2633ee9ef5e242896032a5e19f6bd937457601ad5e938c?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Price icon" class="price-icon" />
+          </div>
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/bde1973a37d85ec5357fd45e33cede1b158adcf5d07154a42cc154827a013f10?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Price range slider" class="price-slider" />
+          <div class="price-range">
+            <input type="text" class="price-input" value="₹70" aria-label="Minimum price" />
+            <input type="text" class="price-input" value="₹600" aria-label="Maximum price" />
+          </div>
+        </div>
+      </aside>
+      <div class="products-column">
+        <div class="products-container">
+          <div class="products-grid">
+            <div class="product-column">
+              <div class="product-image-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9c2b9e949bd9496e4e734d556995608e9ed0cb37fa2d5029014e67d5ede9679?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Red Sweatshirt" class="product-image" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a1aa14d440e66e63d68d0b1f6056f87adc7b285beb57547bf5896c8cf0832f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Favorite icon" class="favorite-icon" />
+              </div>
+            </div>
+            <div class="product-column">
+              <div class="product-image-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c68b09a04e6a7538bbf85cca0f3f51a8949ae41360b5a122a9f4c826447fac77?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Cloth Bag" class="product-image" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a1aa14d440e66e63d68d0b1f6056f87adc7b285beb57547bf5896c8cf0832f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Favorite icon" class="favorite-icon" />
+              </div>
+            </div>
+            <div class="product-column">
+              <div class="product-image-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4870cb7d7113a767c0047bf5832165d222a5b24baa06bad2f21b5f561798f1d1?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Cloth Bag Big" class="product-image" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a1aa14d440e66e63d68d0b1f6056f87adc7b285beb57547bf5896c8cf0832f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Favorite icon" class="favorite-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Red Sweatshirt</h3>
+            <div class="price-wrapper">
+              <span class="product-price">₹ 100.00</span>
+              <h3 class="product-title">Cloth Bag</h3>
+            </div>
+            <div class="price-wrapper">
+              <span class="product-price">₹ 25.00</span>
+              <h3 class="product-title">Cloth Bag Big</h3>
+            </div>
+            <span class="product-price">₹ 50.00</span>
+          </div>
+          <div class="products-grid">
+            <div class="product-column">
+              <div class="product-image-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d32671b957851bd9983eb2b5c2242be6f89df9251c825683be231bbbe91304a7?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Pattern Bag" class="product-image" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a1aa14d440e66e63d68d0b1f6056f87adc7b285beb57547bf5896c8cf0832f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Favorite icon" class="favorite-icon" />
+              </div>
+            </div>
+            <div class="product-column">
+              <div class="product-image-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/cc9d077e4c47da646f62f2f397c078b41c912687d597c00770e4921870eb7631?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Small Craft Flower Pot" class="product-image" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a1aa14d440e66e63d68d0b1f6056f87adc7b285beb57547bf5896c8cf0832f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Favorite icon" class="favorite-icon" />
+              </div>
+            </div>
+            <div class="product-column">
+              <div class="product-image-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/07d03e3f937ca24e41ab306706e707ba87d75c329e49f2ab9c06684dd23a2416?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Designer Bag" class="product-image" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a1aa14d440e66e63d68d0b1f6056f87adc7b285beb57547bf5896c8cf0832f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Favorite icon" class="favorite-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Pattern Bag</h3>
+            <div class="price-wrapper">
+              <span class="product-price">₹ 60.00</span>
+              <div class="price-wrapper">
+                <h3 class="product-title">Small Craft Flower Pot</h3>
+                <span class="product-price">₹ 70.00</span>
+              </div>
+              <div class="price-wrapper">
+                <h3 class="product-title">Designer Bag</h3>
+                <span class="product-price">₹ 300.00</span>
+              </div>
+            </div>
+          </div>
+          <div class="products-grid">
+            <div class="product-column">
+              <div class="product-image-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/57536cb1d8ea3a0503eac292346abba9b49455a40bd679df8f5e66a8d1f3e81c?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Paper Pencil" class="product-image" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a1aa14d440e66e63d68d0b1f6056f87adc7b285beb57547bf5896c8cf0832f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Favorite icon" class="favorite-icon" />
+              </div>
+            </div>
+            <div class="product-column">
+              <div class="product-image-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/188c6d3e09b2b1330225364bed4b837cba30fc288615191248fcb03453fe7e7c?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Coconut Craft" class="product-image" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a1aa14d440e66e63d68d0b1f6056f87adc7b285beb57547bf5896c8cf0832f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Favorite icon" class="favorite-icon" />
+              </div>
+            </div>
+            <div class="product-column">
+              <div class="product-image-wrapper">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/43e9c861baef55c0ef9eedd1680911030d586a224008d690b78941f55c15571f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Premium Craft Flower Pot" class="product-image" />
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a1aa14d440e66e63d68d0b1f6056f87adc7b285beb57547bf5896c8cf0832f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Favorite icon" class="favorite-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Paper Pencil</h3>
+            <div class="price-wrapper">
+              <span class="product-price">₹ 10.00</span>
+              <h3 class="product-title">Coconut Craft</h3>
+            </div>
+            <div class="price-wrapper">
+              <span class="product-price">₹ 200.00</span>
+              <h3 class="product-title">Premium Craft Flower Pot</h3>
+            </div>
+            <span class="product-price">₹ 200.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="products-grid">
+      <div class="product-column">
+        <div class="product-image-wrapper">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/bba1490dd6789de672d84e6bae6b1a5cc36ae37008d31ad267a378957e83b555?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Homemade Dishwash(40ml)" class="product-image" />
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a1aa14d440e66e63d68d0b1f6056f87adc7b285beb57547bf5896c8cf0832f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Favorite icon" class="favorite-icon" />
+        </div>
+      </div>
+      <div class="product-column">
+        <div class="product-image-wrapper">
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/25acbd67d7a1714b38ad9a8721e03a1bbb4cec5bfcd77dc3e1cbe043c7517d51?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Notepad (50 Pages)" class="product-image" />
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a1aa14d440e66e63d68d0b1f6056f87adc7b285beb57547bf5896c8cf0832f?placeholderIfAbsent=true&apiKey=c61dd37ad2a04dbeb6bff4c43ea4dd5f" alt="Favorite icon" class="favorite-icon" />
+        </div>
+      </div>
+    </div>
+    <div class="product-info">
+      <h3 class="product-title">Homemade Dishwash(40ml)</h3>
+      <div class="price-wrapper">
+        <span class="product-price">₹ 40.00</span>
+        <h3 class="product-title">Notepad (50 Pages)</h3>
+        <span class="product-price">₹ 25.00</span>
+      </div>
+    </div>
+  </main>
+  <footer class="footer-wrapper">
+    <div class="footer-divider"></div>
+    <div class="footer-content">
+      <div class="footer-columns">
+        <div class="footer-logo-column">
+          <div class="footer-logo-address">
+            <div class="footer-logo" aria-label="Company logo"></div>
+            <address class="footer-address">IIITM-K, Technopark Phase-4, Trivandrum</address>
+          </div>
+        </div>
+        <div class="footer-links-column">
+          <div class="footer-links-wrapper">
+            <div class="footer-links-subcolumn">
+              <nav class="footer-links">
+                <a href="#" class="footer-link">View Products</a>
+                <a href="#" class="footer-link">About Us</a>
+                <a href="#" class="footer-link">Newsstand</a>
+              </nav>
+            </div>
+            <div class="footer-links-subcolumn">
+              <nav class="footer-links">
+                <a href="#" class="footer-link">My profile</a>
+                <a href="#" class="footer-link">My preferences</a>
+              </nav>
+            </div>
+            <div class="footer-links-subcolumn">
+              <nav class="footer-links">
+                <a href="#" class="footer-link">Privacy policy</a>
+                <a href="#" class="footer-link">Site map</a>
+                <a href="#" class="footer-link">Terms and conditions</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</section>
